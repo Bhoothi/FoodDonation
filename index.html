@@ -4,23 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Food Donation Platform</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
-
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
 
     <!-- Top Right Buttons -->
     <div class="top-right-buttons">
-        <a href="{{ url_for('register') }}" class="button">Register</a>
-        <a href="{{ url_for('login') }}" class="button">Login</a>
+        <a href="register.html" class="button">Register</a>
+        <a href="login.html" class="button">Login</a>
     </div>
-         <a href="templates/login.html">Login</a>
 
     <!-- Hero Section -->
     <section class="hero">
         <h1>Welcome to Our Food Donation Platform</h1>
         <p>Help reduce food waste and feed those in need. Join our community of donors and make a difference today!</p>
-        <a href="{{ url_for('register') }}" class="hero-button">Get Started</a>
+        <a href="register.html" class="hero-button">Get Started</a>
     </section>
 
     <!-- How It Works Section -->
@@ -76,9 +74,10 @@
     <section class="call-to-action">
         <h2>Join Us in the Fight Against Hunger</h2>
         <p>Your small act of kindness can make a big difference. Sign up today!</p>
-        <a href="{{ url_for('register') }}" class="cta-button">Become a Donor</a>
+        <a href="register.html" class="cta-button">Become a Donor</a>
     </section>
-    </script>
 
+    <!-- Scripts -->
+    <script src="static/js/script.js"></script>
 </body>
 </html>
