@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>Admin Dashboard</h2>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('view_donations') }}">View Donations</a></li>
+                    <li><a href="{{ url_for('manage_users') }}">Manage Users</a></li>
+                    <li><a href="{{ url_for('view_reports') }}">View Reports</a></li>
+                    <li><a href="{{ url_for('received_donations') }}">View Received Donations</a></li>
+                    <li><a href="{{ url_for('settings') }}">Settings</a></li>
+                    <li><a href="{{ url_for('donate') }}" class="donate-button">Donate</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1>Welcome to the Dashboard</h1>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Total Donations</h3>
+                    <p>2</p>
+                    <button onclick="location.href='{{ url_for('view_donations') }}'">View Details</button>
+                </div>
+                <div class="card">
+                    <h3>Active Donors</h3>
+                    <p>1</p>
+                    <button onclick="location.href='{{ url_for('manage_users') }}'">View Details</button>
+                </div>
+                <div class="dashboard-buttons">
+                     <a href="{{ url_for('donor_dashboard') }}" class="dashboard-button donor-dashboard-button">Go to Donor Dashboard</a>
+                </div>
+                <div class="card">
+                    <h3>Monthly Goal Progress</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 70%;"></div>
+                    </div>
+                    <p>70% of goal achieving</p>
+                </div>
+                <div class="card">
+                    <h3>Reports</h3>
+                    <p><a href="{{ url_for('view_reports') }}">View Detailed Reports</a></p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <style>
+        /* Background Image Styles */
+        body {
+            background-image: url("{{ url_for('static', filename='images/ff.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Makes sure the background is fixed while scrolling */
+        }
+
+        .dashboard-container {
+            position: relative;
+            z-index: 1;
+            color: white;
+        }
+
+        /* Sidebar and other content styling */
+        .sidebar {
+            background-color: rgba(0, 0, 0, 0.5); /* Slight transparency for sidebar */
+            padding: 20px;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</body>
+</html>

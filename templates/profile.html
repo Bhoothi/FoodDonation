@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Profile</h1>
+
+        <!-- Profile Picture Display -->
+        <div class="profile-pic-container">
+            <h2>Profile Picture</h2>
+            <img src="{{ url_for('static', filename=user.profile_picture if user.profile_picture else 'default.jpg') }}" alt="Profile Picture" class="profile-pic">
+        </div>
+
+        <!-- Form to upload profile picture -->
+        <h2>Upload New Profile Picture</h2>
+        <form action="{{ url_for('upload_profile_picture') }}" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <button type="submit">Upload Profile Picture</button>
+        </form>
+
+        <br>
+        <a href="{{ url_for('manage_users') }}">Back to User Management</a>
+    </div>
+</body>
+</html>

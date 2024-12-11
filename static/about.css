@@ -1,0 +1,96 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+header {
+    background-color: #3b5998;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+header p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* Main Content Container */
+.about-content {
+    width: 80%;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* Section Styling */
+.about-content section {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mission, .impact, .how-it-works, .call-to-action {
+    border-left: 4px solid #3b5998;
+    padding-left: 15px;
+}
+
+/* Section Headings */
+h2 {
+    color: #3b5998;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+/* List Styling */
+ol {
+    padding-left: 20px;
+    font-size: 1em;
+}
+
+ol li {
+    margin-bottom: 10px;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-content {
+        width: 90%;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    header p, h2 {
+        font-size: 1.2em;
+    }
+}
+

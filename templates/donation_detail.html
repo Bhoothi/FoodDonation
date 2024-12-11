@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Detail</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='received.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Donation Details</h1>
+    </header>
+
+    <div class="content">
+        <h2>Donation Information</h2>
+
+        <table class="donations-table">
+            <tr>
+                <th>Donor ID</th>
+                <td>{{ donation.id or 'N' }}</td>
+            </tr>
+            <tr>
+                <th>Food Type</th>
+                <td>{{ donation.food_type }}</td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td>{{ donation.quantity }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ donation.address or 'Food Bank'  }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ donation.date.strftime('%Y-%m-%d') }}</td>
+            </tr>
+        </table>
+
+        <p><a href="{{ url_for('view_reports') }}">Back to Reports</a></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Food Donation Platform. All rights reserved.</p>
+    </footer>
+</body>
+</html>

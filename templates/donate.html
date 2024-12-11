@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Food Items</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='donate.css') }}">
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Donate Food Items</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('dashboard') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('admin') }}">Admin</a></li>
+                <li><a href="{{ url_for('donate') }}">Donate</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h2>Make a Donation</h2>
+        <p>Thank you for your generosity! Please fill out the form below to donate food items to those in need.</p>
+
+        <!-- Donation Progress Bar Section -->
+        <h3>Donation Progress</h3>
+        <div class="progress-container">
+            <div class="progress-bar" style="width: {{ (total_donations / goal) * 100 if total_donations is not none else 0 }}%;"></div>
+        </div>
+        <p>{{ total_donations or 0 }} out of {{ goal }} kg donated!</p>
+
+        <!-- Suggested Donations Section -->
+        <h3>Suggested Donations</h3>
+        <div class="suggested-container">
+            <button onclick="toggleSuggestions()" class="collapsible">View Suggested Items</button>
+            <div class="suggested-content" id="suggestedContent" style="display: none;">
+                <ul>
+                    {% for item in suggested_items %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <!-- Feedback Messages -->
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                <div class="messages">
+                    {% for category, message in messages %}
+                        <div class="alert {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Donation Form -->
+        <form action="{{ url_for('donate') }}" method="POST" class="donate-form">
+            <label for="donor_name">Your Name:</label>
+            <input type="text" id="donor_name" name="donor_name" required>
+
+            <label for="food_type">Food Item:</label>
+            <input type="text" id="food_type" name="food_type" required>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" required min="1">
+
+            <label for="contact">Contact Information:</label>
+            <input type="text" id="contact" name="contact" required pattern="[0-9]{10}" title="Enter a 10-digit phone number.">
+
+            <label for="location">Pickup Location:</label>
+            <select id="location" name="location" onchange="toggleManualLocation()" required>
+                <option value="">Select a Pickup Location</option>
+                <option value="Community Center">Community Center</option>
+                <option value="Food Bank">Food Bank</option>
+                <option value="Local Church">Local Church</option>
+                <option value="Library">Library</option>
+                <option value="Other">Other (Type your location)</option>
+            </select>
+
+            <div id="manual-location" style="display: none;">
+                <label for="manual_location">Please specify your location:</label>
+                <input type="text" id="manual_location" name="manual_location" placeholder="Enter a location">
+            </div>
+
+            <button type="submit">Submit Donation</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Food Donation Platform. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Collapsible Suggestions -->
+<script>
+                function getNearbyPlaces() {
+                    console.log("Getting nearby places..."); // Debugging log
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(function(position) {
+                            var userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+                            var map = new google.maps.Map(document.createElement('div'), {
+                                center: userLocation,
+                                zoom: 15
+                            });
+
+                            var service = new google.maps.places.PlacesService(map);
+                            var request = {
+                                location: userLocation,
+                                radius: 5000,  // radius in meters
+                                type: ['point_of_interest']  // You can filter by other types like 'restaurant', 'church', etc.
+                            };
+
+                            service.nearbySearch(request, function(results, status) {
+                                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                                    var placesDropdown = document.getElementById("location");
+                                    placesDropdown.innerHTML = "<option value=''>Select a Pickup Location</option>";  // Reset dropdown
+
+                                    results.forEach(function(place) {
+                                        var option = document.createElement("option");
+                                        option.value = place.name;
+                                        option.text = place.name;
+                                        placesDropdown.appendChild(option);
+                                    });
+                                } else {
+                                    console.error("Nearby search failed: " + status);  // Log error if request fails
+                                    alert("Couldn't fetch nearby places.");
+                                }
+                            });
+                        });
+                    } else {
+                        console.error("Geolocation is not supported by this browser.");
+                        alert("Geolocation is not supported by this browser.");
+                    }
+                }
+
+                // Call the function to get nearby places when the page loads
+                window.onload = function() {
+                    getNearbyPlaces();
+                };
+
+                // Show the manual location input when 'Other' is selected
+                function toggleManualLocation() {
+                    var locationSelect = document.getElementById("location");
+                    var manualLocationDiv = document.getElementById("manual-location");
+                    if (locationSelect.value === "Other") {
+                        manualLocationDiv.style.display = "block";
+                    } else {
+                        manualLocationDiv.style.display = "none";
+                    }
+                }
+            </script>
+</body>
+</html>

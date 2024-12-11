@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='manage_users.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Manage Users</h1>
+
+        <div class="user-list">
+            <h2>Existing Users</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Profile Picture</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            <!-- Display Profile Picture -->
+                            {% if user.profile_picture %}
+                                <img src="{{ url_for('static', filename='profile_pics/' + user.profile_picture) }}" alt="Profile Picture" width="50">
+                            {% else %}
+                                <img src="{{ url_for('static', filename='default_profile.png') }}" alt="Default Picture" width="50">
+                            {% endif %}
+                        </td>
+                        <td>
+                            <form method="POST" action="{{ url_for('delete_user', user_id=user.id) }}" onsubmit="return confirm('Are you sure you want to ignore this donation?');">
+                            <button type="submit" class="ignore-button">Delete User</button>
+                            </form>
+                            <!-- Single button to trigger the file input -->
+                            <form action="{{ url_for('upload_profile_picture', user_id=user.id) }}" method="POST" enctype="multipart/form-data">
+                                <input type="file" name="profile_picture" accept="image/*" style="display: none;" id="fileInput{{ user.id }}" onchange="this.form.submit()">
+                                <button type="button" onclick="document.getElementById('fileInput{{ user.id }}').click()">Add Profile Picture</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

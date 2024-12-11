@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Food Donation Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+
+</head>
+<body>
+
+    <!-- Top Right Buttons -->
+    <div class="top-right-buttons">
+        <a href="{{ url_for('register') }}" class="button">Register</a>
+        <a href="{{ url_for('login') }}" class="button">Login</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to Our Food Donation Platform</h1>
+        <p>Help reduce food waste and feed those in need. Join our community of donors and make a difference today!</p>
+        <a href="{{ url_for('register') }}" class="hero-button">Get Started</a>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <h3>1. Register</h3>
+                <p>Sign up to become a part of our community.</p>
+            </div>
+            <div class="step">
+                <h3>2. Donate Food</h3>
+                <p>List food items you want to donate, and our team will handle the rest.</p>
+            </div>
+            <div class="step">
+                <h3>3. Distribute</h3>
+                <p>Our volunteers collect and distribute food to those in need.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Statistics Section -->
+    <section class="impact">
+        <h2>Our Impact</h2>
+        <div class="stats">
+            <div class="stat">
+                <h3>000</h3>
+                <p>Donors</p>
+            </div>
+            <div class="stat">
+                <h3>000</h3>
+                <p>Meals Provided</p>
+            </div>
+            <div class="stat">
+                <h3>000</h3>
+                <p>Communities Served</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Our Donors Say</h2>
+        <div class="testimonial">
+            <p>"Donating food has never been easier. I feel good knowing my extra food helps others."</p>
+        </div>
+        <div class="testimonial">
+            <p>"This platform is a great initiative to reduce food waste and fight hunger."</p>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="call-to-action">
+        <h2>Join Us in the Fight Against Hunger</h2>
+        <p>Your small act of kindness can make a big difference. Sign up today!</p>
+        <a href="{{ url_for('register') }}" class="cta-button">Become a Donor</a>
+    </section>
+    </script>
+
+</body>
+</html>

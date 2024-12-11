@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Food Donation Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='setting.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Settings</h1>
+        <form action="{{ url_for('settings') }}" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="{{ user.username }}" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ user.email }}" required>
+
+            <label for="password">Change Password:</label>
+            <input type="password" id="password" name="password" placeholder="Leave blank to keep current password">
+
+            <label for="notification">Notifications:</label>
+            <select id="notification" name="notification">
+                <option value="enabled" {% if user.notification == 'enabled' %}selected{% endif %}>Enabled</option>
+                <option value="disabled" {% if user.notification == 'disabled' %}selected{% endif %}>Disabled</option>
+            </select>
+
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>

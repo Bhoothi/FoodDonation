@@ -1,0 +1,474 @@
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    background-color: #4CAF50;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Styling */
+.content {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.content h2 {
+    text-align: center;
+    color: #333;
+}
+
+.content p {
+    text-align: center;
+    margin: 0 0 20px;
+    color: #555;
+}
+
+/* Form Styling */
+.donate-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.donate-form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.donate-form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.donate-form button {
+    padding: 12px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.donate-form button:hover {
+    background-color: #45a049;
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 40px;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+/* Suggested Donations Section */
+.suggested-container {
+    margin: 20px 0;
+}
+
+.collapsible {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.collapsible:hover {
+    background-color: #45a049;
+}
+
+.suggested-content {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.suggested-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.suggested-content li {
+    margin: 5px 0;
+}
+/* Focus style for better keyboard navigation */
+input:focus, button:focus {
+    outline: 2px solid #4CAF50; /* Green focus border */
+    background-color: #e0ffe0;  /* Light green background */
+}
+/* High Contrast Mode */
+.high-contrast {
+    background-color: #000; /* Black background */
+    color: #fff;            /* White text */
+}
+
+.high-contrast header, .high-contrast footer {
+    background-color: #333; /* Dark background for header/footer */
+}
+
+.high-contrast .collapsible, .high-contrast button {
+    background-color: #FFD700; /* Bright yellow buttons */
+    color: #000; /* Black text for readability */
+}
+
+.high-contrast input, .high-contrast .progress-container {
+    background-color: #444; /* Darker backgrounds for inputs/progress */
+    color: #fff; /* White text */
+}
+
+.high-contrast input:focus, .high-contrast button:focus {
+    outline: 2px solid #FFD700; /* Bright yellow focus outline */
+    background-color: #555; /* Darker background on focus */
+}
+/* Basic form styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.content {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Form styles */
+.donate-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.donate-form label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.donate-form input, .donate-form button {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+/* Mobile-friendly adjustments */
+@media (max-width: 600px) {
+    /* Content and form layout */
+    .content {
+        padding: 15px;
+    }
+
+    /* Reduce font size slightly for smaller screens */
+    .donate-form label {
+        font-size: 0.9rem;
+    }
+
+    .donate-form input, .donate-form button {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+
+    /* Adjust button for mobile */
+    button {
+        padding: 12px;
+        font-size: 1rem;
+        width: 100%; /* Ensure full-width buttons */
+    }
+}
+/* Basic layout and styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.content {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Form styles */
+.donate-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.donate-form label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.donate-form input, .donate-form button {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 600px) {
+    .content {
+        padding: 15px;
+    }
+
+    .donate-form label {
+        font-size: 0.9rem;
+    }
+
+    .donate-form input, .donate-form button {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 1rem;
+        width: 100%;
+    }
+}
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+.progress-bar {
+    height: 20px;
+    width: 0;
+    background-color: #4caf50;
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+/* Statistics */
+.statistics {
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+.statistics p {
+    margin: 5px 0;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+/* donate.css */
+.alert.success {
+    color: green;
+    font-weight: bold;
+}
+/* Table styling */
+.donations-table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders collapse into one line */
+    margin-top: 20px;
+}
+
+.donations-table th,
+.donations-table td {
+    border: 1px solid #ddd; /* Adds a border to cells */
+    padding: 12px; /* Adds spacing within cells */
+    text-align: left;
+}
+
+.donations-table th {
+    background-color: #f2f2f2; /* Light gray background for headers */
+    font-weight: bold;
+}
+
+.donations-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternate row color for better readability */
+}
+
+.donations-table tr:hover {
+    background-color: #ddd; /* Highlight row on hover */
+}
+
+/* Accept Button */
+.accept-button {
+    padding: 10px 15px;
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.accept-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Delete Button */
+.delete-button {
+    padding: 10px 15px;
+    background-color: #f44336; /* Red color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #e53935; /* Darker red on hover */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background: #4CAF50;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.content {
+    padding: 20px;
+}
+
+.progress-container {
+    background: #ddd;
+    border-radius: 5px;
+    height: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.progress-bar {
+    background: #4CAF50;
+    height: 100%;
+    border-radius: 5px;
+}

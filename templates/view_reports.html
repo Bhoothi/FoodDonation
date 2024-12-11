@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Reports</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='reports.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Donation Reports</h1>
+        <canvas id="donationChart" width="400" height="200"></canvas>
+        <script>
+            const reportData = {{ report_data|tojson }};
+            const labels = Object.keys(reportData);
+            const data = Object.values(reportData);
+
+            const ctx = document.getElementById('donationChart').getContext('2d');
+            const donationChart = new Chart(ctx, {
+                type: 'bar', // You can change this to 'line', 'pie', etc.
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Quantity of Donations',
+                        data: data,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+    </div>
+        <p><a href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>
+
+</body>
+</html>
